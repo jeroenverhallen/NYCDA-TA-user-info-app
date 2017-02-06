@@ -1,0 +1,12 @@
+extends ../application.pug
+
+block content
+  .container
+    .row
+      .col-xs-6.offset-xs-3
+        form(action="/search" method="POST")
+          .form-group
+            h4.text-xs-center Search Users
+            input(name="query" type="text" class="form-control" placeholder="Name")
+
+          button(type="submit" class="btn btn-success btn-block btn-lg") Search

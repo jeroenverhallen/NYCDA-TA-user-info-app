@@ -1,10 +1,12 @@
 {
-  "name": "packagejson",
+  "name": "nycda-user-info-app",
   "version": "1.0.0",
   "description": "Create a Node.js application that is the beginning of a user management system. Your users are all saved in a \"users.json\" file, and you can currently do the following:\r - search for users\r - add new new users to your users file.",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.16.0",
     "express": "^4.14.1",
+    "morgan": "^1.7.0",
     "pug": "^2.0.0-beta10"
   },
   "devDependencies": {},
