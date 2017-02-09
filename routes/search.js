@@ -1,6 +1,8 @@
-var express = require('express'),
-    router = express.Router(),
-    userStore = require('./../user-reader');
+const   express = require('express'),
+        fs = require('fs'),
+        router = express.Router();
+
+var userStore = require('./../user-reader');
 
 router.get('/', (request, response) => {
     response.render('search/search-users');

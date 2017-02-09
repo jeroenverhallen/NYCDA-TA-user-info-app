@@ -3,9 +3,11 @@ const fs = require('fs');
 var users = JSON.parse(fs.readFileSync('users.json'));
 
 module.exports = {
+ 
   getUsers: function() {
     return users;
   },
+
   searchUsers: function(query) {
     var results = [];
 
@@ -16,6 +18,15 @@ module.exports = {
     });
     return results;
   },
+  
+  addUser: function(userObject) {
+    users.push(userObject);
+    fs.writeFile('users.json', JSON.stringify(users), (error, data) => {
+      if (error) {
+        throw error;
+      }
+    });
+  }
 };
 
 function searchFirstName(input, user) {
