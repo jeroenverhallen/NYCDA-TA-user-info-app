@@ -1,8 +1,9 @@
 const   express = require('express'),
         fs = require('fs'),
-        router = express.Router();
+        router = express.Router(),
+        app = express();
 
-var userStore = require('./../user-reader');
+const userStore = require('./../user-reader');
 
 router.get('/', (request, response) => {
     response.render('search/search-users');
@@ -14,7 +15,8 @@ router.post('/', (request, response) => {
 
 router.get('/:query', (request, response) => {
     var results = userStore.searchUsers(request.params.query);
-
+    console.log('RESULTS ARE:');
+    console.log(request.params.query);
     response.render('search/show-results', {results: results});
 });
 

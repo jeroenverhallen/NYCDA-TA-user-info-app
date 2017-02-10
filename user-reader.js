@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-var users = JSON.parse(fs.readFileSync('users.json'));
+const users = JSON.parse(fs.readFileSync('users.json'));
 
 module.exports = {
  
