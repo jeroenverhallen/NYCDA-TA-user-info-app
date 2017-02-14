@@ -5,15 +5,15 @@ html
   body
     nav(class="navbar navbar-light bg-faded")
       a(class="navbar-brand" href="/") User Information Application
-      button(type="button" class="btn btn-succes jl-like-button") Like this app
+      button(type="button" class="btn btn-info jl-like-button") Like this app
+      button(type="button" class="btn btn-danger jl-dislike-button") Dislike this app
       ul.nav.navbar-nav.float-xs-right
          li.nav-item
            a(class="navbar-text" href="/add-user") NEW USER
-      
          li.nav-item
            a(class="navbar-text" href="/search") SEARCH
 
     block content
 
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+    script(src="jquery/jquery-3.1.0.min.js")
     script(src="/js/application.js")

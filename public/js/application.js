@@ -1,10 +1,18 @@
-$('.jl-like-button').on('click', function() {
+$('.jl-like-button').one('click', function() {
   $.post('/like', function(data) {
     $('.jl-like-button').text('LIKES: ' + data.likeCount);
     console.log(data.likeCount);
     console.log('like finished');
-  })
-})
+  });
+});
+
+$('.jl-dislike-button').one('click', function() {
+  $.post('/dislike', function(data) {
+    $('.jl-dislike-button').text('DISLIKES: ' + data.dislikeCount);
+    console.log(data.dislikeCount);
+    console.log('dislike finished');
+  });
+});
 
 $('#search-button input').on('keyup', function() {
    var query = $('#search-button input').val();

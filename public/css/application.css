@@ -23,3 +23,7 @@
    padding-top: 12px;
    border: solid 1px lightgrey;
  }
+
+ .li {
+   float: left;
+ }

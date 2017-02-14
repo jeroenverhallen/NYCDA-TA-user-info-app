@@ -13,6 +13,8 @@ const app = express(),
 
 var likeStore = JSON.parse(fs.readFileSync('likes.json'));
 
+var dislikeStore = JSON.parse(fs.readFileSync('dislikes.json'));
+
 app.use(express.static('public'));
 
 app.set('view engine', 'pug');
@@ -44,6 +46,17 @@ app.post('/like',(request, response) => {
                   throw error;
             }
             console.log('new likeCount added to likes.json');
+      });
+});
+
+app.post('/dislike',(request, response) => {
+      dislikeStore.dislikeCount = dislikeStore.dislikeCount + 1;
+      response.json(dislikeStore);
+      fs.writeFile('dislikes.json', JSON.stringify(dislikeStore), (error, data) => {
+            if (error) {
+                  throw error;
+            }
+            console.log('new dislikeCount added to dislikes.json');
       });
 });
 
