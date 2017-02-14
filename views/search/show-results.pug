@@ -7,7 +7,8 @@ block content
     if results
       each result in results
         .card.card-block
-          h4(class="card-title")= result.firstname + " " + result.lastname
+          a(href="/" + result.lastname)
+            h4(class="card-title")= result.firstname + " " + result.lastname
           p(class="card-text")= "Email: " + result.email
     else
       h4 User is not found

@@ -22,11 +22,22 @@ $('#search-button input').on('keyup', function() {
      $.get('/api/search/' + query, function(data) {
        console.log(data);
        $(".jl-app-search-results").html('');
+       console.log(element);
        data.forEach(function(element) {
          $(".jl-app-search-results").append(
-           $("<li>" + element.firstname + ' ' + element.lastname + '</li>')
-           );
+         $("<li data-surname="+"'"+element.lastname+"'"+">"+element.firstname + ' ' + element.lastname + "</li>")
+         );
          });
        });
      }
+   });
+
+   console.log("YESSSSAPPENED!");
+
+   $(".jl-app-search-results").click(function(e) {
+     var lastname = (e.target).getAttribute("data-surname");
+
+     $.get('/'+lastname, function(data) {
+       window.location.href = '/'+lastname;
+     });
    });
