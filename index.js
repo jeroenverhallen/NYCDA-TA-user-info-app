@@ -18,7 +18,12 @@ fs.readFile('likes.json', function (err, data) {
       likeStore = (JSON.parse(data));
 });
 
-var dislikeStore = JSON.parse(fs.readFileSync('dislikes.json'));
+var dislikeStore;
+
+fs.readFile('dislikes.json', function (err, data) {
+      if (err) return console.error(err);
+      dislikeStore = (JSON.parse(data));
+});
 
 app.use(express.static('public'));
 
